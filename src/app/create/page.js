@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 export default function Create() {
   const router = useRouter();
@@ -12,9 +12,9 @@ export default function Create() {
         const body = e.target.body.value;
 
         const options = {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({ title, body }),
         };
@@ -24,6 +24,7 @@ export default function Create() {
           .then((result) => {
             console.log(result);
             const lastid = result.id;
+            router.refresh();
             router.push(`/read/${lastid}`);
           });
       }}
